@@ -8,13 +8,19 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
 
   </head>
   <body>
-	<div class="container">
-		<h1>Dinner planner</h1>
-		<div id="exampleView"></div>
-	</div>
+    <div class="topbar">
+      <h1>Dinner planner</h1>
+    </div>
+	<div class="container-fluid">
+        <div class="row">
+    		<div id="sidebarView" class="col-md-3"></div>
+    		<div id="mainView" class="col-md-9"></div>
+        </div>
+    </div>
 
     <!-- jQuery -->
     <script src="https://code.jquery.com/jquery.js"></script>
@@ -25,6 +31,7 @@
 	<script src="js/app.js"></script>
 	<script src="js/model/dinnerModel.js"></script>
 	<script src="js/view/sidebarView.js"></script>
+	<script src="js/view/browserView.js"></script>
 	<script src="js/util/dom.js"></script>
   </body>
 </html>

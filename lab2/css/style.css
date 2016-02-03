@@ -1,0 +1,65 @@
+div {
+    border-width: 1px;
+}
+
+hr {
+    border-color: black;
+}
+
+.topbar {
+    border-bottom: solid 1px;
+}
+
+#mainView {
+    padding: 0px;
+}
+
+#sidebarView {
+    border-right: solid 1px;
+    height: 1400px;
+}
+
+.sidebar {
+    position: fixed;
+}
+
+.search-bar {
+    background-color: #FFF59D;
+    padding: 20px 0px;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-bottom: solid 1px;
+
+}
+
+.browse {
+    margin-left: 40px;
+    margin-top: 80px;
+}
+
+.browse-dish {
+    border-style: solid;
+    border-radius: 5px;
+    margin-left: -15px;
+    height: 340px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.browse-dish img {
+    width: 100%;
+    max-height: 100%;
+}
+
+.image-container {
+    height: 195px;
+}
+
+.browse-dish h4, .browse-dish p {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.browse-dish p {
+
+}
