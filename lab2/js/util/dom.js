@@ -1,6 +1,7 @@
 var DOM = (function () {
 	var dom = {};
 	dom.createElement = function (type, properties, children) {
+		children = children || [];
 		var element = document.createElement(type);
 
 		for(var property in properties) {

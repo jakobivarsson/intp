@@ -92,7 +92,7 @@ var DinnerModel = function() {
 	this.getTotalMenuPrice = function() {
 		return menu.reduce(function (totalPrice, dish) {
 			return totalPrice + dish.ingredients.reduce(function (dishPrice, ingredient) {
-				return dishPrice + ingredient;
+				return dishPrice + ingredient.price;
 			}, 0)
 		}, 0);
 	}

@@ -10,6 +10,7 @@ var SidebarView = function (container, model) {
 	var li = DOM.createElementFactory('li');
 	var ul = DOM.createElementFactory('ul');
 	var text = DOM.createTextNode;
+	var hr = DOM.createElementFactory('hr');
 
 
 
@@ -17,27 +18,20 @@ var SidebarView = function (container, model) {
 		h3 ({}, [text("My dinner")]),
 		div({}, [text("Number of guests: " + model.getNumberOfGuests())]),
 		div({}, [
-			button({class: "btn"}, [icon({class: "glyphicon glyphicon-minus"}, [])]),
-			button({class: "btn"}, [icon({class: "glyphicon glyphicon-plus"}, [])])
+			button({class: "btn"}, [icon({class: "glyphicon glyphicon-minus"})]),
+			button({class: "btn"}, [icon({class: "glyphicon glyphicon-plus"})])
 		]),
 		h4 ({}, [text("Dishes")]),
 		ul({class: "list-unstyled"}, model.getFullMenu().map(function (dish) {
 			return li({}, [text(dish.name)]);
-		}))
+		})),
+		hr({}),
+		div({}, [text("Total price: " + model.getTotalMenuPrice() + " SEK")]),
+		div({}, [
+			button({class: "btn"}, [text("Confirm Dinner")])
+		])
 	]);
 
-	container.append(sidebar);
-
-
-	// <h3>My dinner</h3>
-	// <div>
-	// 	Number of guests: <span id="numberOfGuests"></span>
-	// </div>
-	// <div>
- //  	<button id="minusGuest" class="btn"><span class="glyphicon glyphicon-minus"></span></button>
-	// <button id="plusGuest" class="btn"><span class="glyphicon glyphicon-plus"></span></button>
-	// </div>
-	// <h4>Dishes</h4>
-	// <ul id="menu"></ul>
+	container.appendChild(sidebar);
 }
  
