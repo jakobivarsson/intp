@@ -29,7 +29,6 @@ hr {
     padding-left: 40px;
     padding-right: 40px;
     border-bottom: solid 1px;
-
 }
 
 .browse {
@@ -60,6 +59,9 @@ hr {
     padding-right: 5px;
 }
 
-.browse-dish p {
-
+.ingredients {
+    background-color: #FFF59D;
+    padding-bottom: 15px;
+    border-left: solid 1px;
+    border-bottom: solid 1px;
 }
