@@ -4,9 +4,23 @@ var BrowserView = function (container, model) {
 		div({class: "search-bar"}, [
 			h3({}, [text("SELECT DISH")]),
 			hr(),
-			form({class: "form-inline"}, [
-				input({placeholder: "Enter key words", class: "form-control"}),
-				button({class: "btn"}, [text("search")])
+			div({class: "row"}, [
+				form({class: "form-inline col-sm-4"}, [
+					input({placeholder: "Enter key words", class: "form-control"}),
+					button({class: "btn"}, [text("search")])
+				]),
+				div({class: "dropdown col-sm-4"}, [
+					button({class: "btn dropdown-toggle", "data-toggle": "dropdown"}, [
+						text("Main"),
+						span({class: "caret"})
+					]),
+					ul({class: "dropdown-menu"}, [
+						li({}, [a({href: "#"}, [text("All")])]),
+						li({}, [a({href: "#"}, [text("Starter")])]),
+						li({}, [a({href: "#"}, [text("Main")])]),
+						li({}, [a({href: "#"}, [text("Desert")])])
+					])
+				])
 			])
 		]),
 		div({class: "browse"}, model.getAllDishes().map(function (dish) {

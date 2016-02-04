@@ -41,6 +41,7 @@ var img = DOM.createElementFactory('img');
 var li = DOM.createElementFactory('li');
 var p = DOM.createElementFactory('p');
 var span = DOM.createElementFactory('span');
+var a = DOM.createElementFactory('a');
 var ul = DOM.createElementFactory('ul');
 var input = DOM.createElementFactory('input');
 var form = DOM.createElementFactory('form');
