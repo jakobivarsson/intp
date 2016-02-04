@@ -1,6 +1,6 @@
 
 var BrowserView = function (container, model) {
-	container.appendChild(div({}, [
+	container.appendChild(div({id: "mainView", class: "col-md-9"}, [
 		div({class: "search-bar"}, [
 			h3({}, [text("SELECT DISH")]),
 			hr(),

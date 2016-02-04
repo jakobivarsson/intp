@@ -6,7 +6,7 @@ var DishView = function (container, model) {
 		return sum + ingredient.price;
 	}, 0);
 
-	container.appendChild(div({}, [
+	container.appendChild(div({id: "mainView", class: "col-md-9"}, [
 		div({class: "col-md-6"}, [
 			h2({}, [text(dish.name)]),
 			img({src: "images/" + dish.image}),
