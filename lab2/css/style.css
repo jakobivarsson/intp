@@ -21,6 +21,31 @@ hr {
     color: #777777;
 }
 
+button {
+    background: #FFB464;
+}
+
+#dinnerView {
+    padding: 0px;
+}
+
+.recipe-row h2, .recipe-row h3 {
+    margin-top: 0px;
+}
+
+.recipe-row {
+    padding-top: 60px;
+    min-height: 220px;
+}
+
+.navigation-bar {
+    background: #F9E696;
+    width: 100%;
+    border-bottom: solid 1px;
+    margin: 0px;
+    padding: 0px 20px 10px 50px;
+}
+
 #mainView {
     padding: 0px;
 }
@@ -74,7 +99,7 @@ hr {
 }
 
 .ingredients {
-    background-color: #FFF59D;
+    background-color: #F9E696;
     padding-bottom: 15px;
     border-left: solid 1px;
     border-bottom: solid 1px;
