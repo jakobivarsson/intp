@@ -54,13 +54,18 @@ button {
     border-right: solid 1px;
     height: 1400px;
 }
+.list-separator {
+    background: #EEEEEE;
+    border-top: solid 1px;
+    border-bottom: solid 1px;
+}
 
 .sidebar {
-    position: fixed;
+    width: 100%;
 }
 
 .search-bar {
-    background-color: #FFF59D;
+    background-color: #F9E696;
     padding: 20px 0px;
     padding-left: 40px;
     padding-right: 40px;
@@ -96,7 +101,7 @@ button {
 }
 
 .ingredients {
-    background-color: #F9E696;
+    background-color: #FFF59D;
     padding-bottom: 15px;
     border-left: solid 1px;
     border-bottom: solid 1px;

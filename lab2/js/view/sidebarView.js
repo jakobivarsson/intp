@@ -3,15 +3,18 @@ var SidebarView = function (container, model) {
 	container.appendChild(div({id: "sidebarView", class: "col-md-3"}, [
 		div({class: "sidebar"}, [
 			h3({}, [text("My dinner")]),
-			div({}, [text("Number of guests: " + model.getNumberOfGuests())]),
+			div({}, [text("People " + model.getNumberOfGuests())]),
 			div({}, [
-				button({class: "btn"}, [icon({class: "glyphicon glyphicon-minus"})]),
-				button({class: "btn"}, [icon({class: "glyphicon glyphicon-plus"})])
+				button({type: "button", class: "btn btn-default btn-xs"}, [icon({class: "glyphicon glyphicon-minus"})]),
+				button({class: "btn btn-default btn-xs"}, [icon({class: "glyphicon glyphicon-plus"})])
 			]),
-			h4({}, [text("Dishes")]),
-			ul({class: "list-unstyled"}, model.getFullMenu().map(function (dish) {
-				return li({}, [text(dish.name)]);
-			})),
+			hr(),
+			table({class: "table"}, [
+				tr({}, [th({}, [text("Dish name")]), th({}, [text("Cost")])])]
+					.concat(model.getFullMenu().map(function (dish) {
+					return tr({}, [td({}, [text(dish.name)]), td({}, [text("23")])]);
+				}))
+			),
 			hr(),
 			div({}, [text("Total price: " + model.getTotalMenuPrice() + " SEK")]),
 			div({}, [
