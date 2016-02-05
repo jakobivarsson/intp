@@ -8,6 +8,6 @@ document.addEventListener("DOMContentLoaded", function() {
 	// var browserView = new BrowserView(document.getElementById("content"), model);
 	// var dishView = new DishView(document.getElementById("content"), model);
 
-	// var dinnerView = new DinnerView(document.getElementById("content"), model);
-	var recipeView = new RecipeView(document.getElementById("content"), model);
+	var dinnerView = new DinnerView(document.getElementById("content"), model);
+	// var recipeView = new RecipeView(document.getElementById("content"), model);
 });

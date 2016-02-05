@@ -1,3 +1,4 @@
+
 div {
     border-width: 1px;
 }
@@ -6,8 +7,18 @@ hr {
     border-color: black;
 }
 
+.topbar h1 {
+    margin: 0px;
+}
+
 .topbar {
+    background: #EEEEEE;
     border-bottom: solid 1px;
+    padding: 30px;
+}
+
+.topbar small {
+    color: #777777;
 }
 
 #mainView {
