@@ -89,8 +89,8 @@ button {
     max-height: 100%;
 }
 
-.browse-dish p {
-    height: 100px;
+.browse-dish .info {
+    height: 140px;
     overflow: hidden;
 }
 
@@ -117,4 +117,9 @@ button {
 .dinner-dish {
     border: solid 1px;
 
+}
+
+.remove:hover {
+    cursor: pointer;
+    color: #777;
 }

@@ -29,8 +29,10 @@ var BrowserView = function (container, model) {
 					div({class: "image-container"}, [
 						img({src: "images/" + dish.image})
 					]),
-					h4({}, [text(dish.name)]),
-					p({}, [text(dish.description)])
+					div({class: "info"}, [
+						h4({}, [text(dish.name)]),
+						p({}, [text(dish.description)])
+					])
 				])
 			]);
 		}))
