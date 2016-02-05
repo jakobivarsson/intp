@@ -29,6 +29,15 @@ button {
     padding: 0px;
 }
 
+.recipe-row h2, .recipe-row h3 {
+    margin-top: 0px;
+}
+
+.recipe-row {
+    padding-top: 60px;
+    min-height: 220px;
+}
+
 .navigation-bar {
     background: #FFF59D;
     width: 100%;
