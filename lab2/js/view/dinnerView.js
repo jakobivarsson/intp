@@ -1,16 +1,7 @@
 
 var DinnerView = function (container, model) {
 	container.appendChild(div({id: "dinnerView", class: "container"}, [
-		div({class: "row"}, [
-			h2({}, [
-				text("My Dinner: " + model.getNumberOfGuests() + " people"),
-				button({class: "btn pull-right"}, [
-					icon({class: "glyphicon glyphicon-chevron-left"}),
-					text("Go back and edit dinner")
-				])
-			])
-		]),
-		div({class: "row", style: "display: flex"}, [
+		div({class: "row", style: "display: flex; padding-top: 20px"}, [
 			div({class: "col-md-9"},
 				model.getFullMenu().map(function (dish) {
 					return div({class: "col-md-3", style: "float:right"}, [
