@@ -204,6 +204,12 @@ var DinnerModel = function() {
 		}
 	}
 
+	this.getDishPrice = function (dish) {
+		return dish.ingredients.reduce(function (sum, ingredient) {
+			return sum + ingredient.price;
+		}, 0);
+	}
+
 
 	// the dishes variable contains an array of all the
 	// dishes in the database. each dish has id, name, type,

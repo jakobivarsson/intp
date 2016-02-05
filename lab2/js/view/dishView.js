@@ -2,9 +2,7 @@
 var DishView = function (container, model) {
 	var dish = model.getSelectedDish();
 
-	var price = dish.ingredients.reduce(function (sum, ingredient) {
-		return sum + ingredient.price;
-	}, 0);
+	var price = model.getDishPrice(dish);
 
 	container.appendChild(div({id: "mainView", class: "col-md-9"}, [
 		div({class: "col-md-6"}, [
