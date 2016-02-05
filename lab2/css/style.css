@@ -22,7 +22,7 @@ hr {
 }
 
 button {
-    background: #FFBE32;
+    background: #FFB464;
 }
 
 #dinnerView {
@@ -39,7 +39,7 @@ button {
 }
 
 .navigation-bar {
-    background: #FFF59D;
+    background: #F9E696;
     width: 100%;
     border-bottom: solid 1px;
     margin: 0px;
@@ -96,7 +96,7 @@ button {
 }
 
 .ingredients {
-    background-color: #FFF59D;
+    background-color: #F9E696;
     padding-bottom: 15px;
     border-left: solid 1px;
     border-bottom: solid 1px;
