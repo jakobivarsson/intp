@@ -1,15 +1,14 @@
-
-var DishView = function (container, model) {
+var DishView = ViewFactory.bind({}, function (model, ctrl) {
 	var dish = model.getSelectedDish();
 
 	var price = model.getDishPrice(dish);
 
-	container.appendChild(div({id: "mainView", class: "col-md-9"}, [
+	return div({id: "mainView", class: "col-md-9"}, [
 		div({class: "col-md-6"}, [
 			h2({}, [text(dish.name)]),
 			img({src: "images/" + dish.image}),
 			p({}, [text(dish.description)]),
-			button({class: "btn"}, [
+			button({class: "btn", onClick: "showBrowserView()"}, [
 				icon({class: "glyphicon glyphicon-chevron-left"}),
 				text(" back to Select Dish")
 			])
@@ -26,12 +25,61 @@ var DishView = function (container, model) {
 				])
 			})),
 			hr(),
-			button({class: "btn"}, [text("Confirm Dish")]),
+			button({class: "btn", onClick: ctrl.confirmDish.bind(null, dish.id)}, [text("Confirm Dish")]),
 			span({class: "pull-right"}, [text("Price: " + price)])
 		]),
 		div({class: "col-md-12"}, [
 			h3({}, [text("Preparation")]),
 			p({}, [text(dish.description)])
 		])
-	]));
-}
+	]);
+});
+
+//
+// var DishView = function (container, model, ctrl) {
+// 	// var dishView = render
+// 	var dish = model.getSelectedDish();
+//
+// 	var price = model.getDishPrice(dish);
+//
+// 	container.appendChild(div({id: "mainView", class: "col-md-9"}, [
+// 		div({class: "col-md-6"}, [
+// 			h2({}, [text(dish.name)]),
+// 			img({src: "images/" + dish.image}),
+// 			p({}, [text(dish.description)]),
+// 			button({class: "btn", onClick: "showBrowserView()"}, [
+// 				icon({class: "glyphicon glyphicon-chevron-left"}),
+// 				text(" back to Select Dish")
+// 			])
+// 		]),
+// 		div({class: "col-md-6 ingredients"}, [
+// 			h4({}, [text("Ingredients for " + model.getNumberOfGuests() + " people")]),
+// 			hr(),
+// 			table({class: "table"}, dish.ingredients.map(function (ingredient) {
+// 				return tr({}, [
+// 					td({}, [text(ingredient.quantity + " " + ingredient.unit)]),
+// 					td({}, [text(ingredient.name)]),
+// 					td({}, [text("SEK")]),
+// 					td({style: "text-align: right"}, [text(ingredient.price)])
+// 				])
+// 			})),
+// 			hr(),
+// 			button({class: "btn", onClick: ctrl.confirmDish.bind(null, dish.id)}, [text("Confirm Dish")]),
+// 			span({class: "pull-right"}, [text("Price: " + price)])
+// 		]),
+// 		div({class: "col-md-12"}, [
+// 			h3({}, [text("Preparation")]),
+// 			p({}, [text(dish.description)])
+// 		])
+// 	]));
+//
+// 	this.update = function () {
+// 		for(var i = 0; i < container.children.length; i++) {
+// 			if (container.children[i] === sidebarView) {
+// 				sidebarView = render();
+// 				container.replaceChild(sidebarView, container.children[i]);
+// 				return;
+// 			}
+// 		}
+// 	};
+// }

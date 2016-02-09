@@ -1,20 +1,36 @@
 document.addEventListener("DOMContentLoaded", function() {
-	//We instantiate our model
-	var model = new DinnerModel();
+	showDishView();
+});
 
-	// BROWSER
+function deleteViews() {
+	var myNode = document.getElementById("content");
+	while (myNode.firstChild) {
+	    myNode.removeChild(myNode.firstChild);
+	}
+}
+
+function showBrowserView() {
+	deleteViews();
 	var sidebarView = new SidebarView(document.getElementById("content"), model);
 	var browserView = new BrowserView(document.getElementById("content"), model);
+}
 
-	// DISH
-	// var sidebarView = new SidebarView(document.getElementById("content"), model);
-	// var dishView = new DishView(document.getElementById("content"), model);
+function showDishView() {
+	deleteViews();
+	var sidebarCtrl = new SidebarCtrl(model);
+	var dishCtrl = new DishCtrl(model);
+	var sidebarView = new SidebarView(document.getElementById("content"), model, sidebarCtrl);
+	var dishView = new DishView(document.getElementById("content"), model, dishCtrl);
+}
 
-	// DINNER
-	// var navigationView = new NavigationView(document.getElementById("content"), model);
-	// var dinnerView = new DinnerView(document.getElementById("content"), model);
-	
-	// RECIPE
-	// var navigationView = new NavigationView(document.getElementById("content"), model);
-	// var recipeView = new RecipeView(document.getElementById("content"), model);
-});
+function showDinnerView() {
+	deleteViews();
+	var navigationView = new NavigationView(document.getElementById("content"), model, "showBrowserView()");
+	var dinnerView = new DinnerView(document.getElementById("content"), model);
+}
+
+function showRecipeView() {
+	deleteViews();
+	var navigationView = new NavigationView(document.getElementById("content"), model, "showDinnerView()");
+	var recipeView = new RecipeView(document.getElementById("content"), model);
+}

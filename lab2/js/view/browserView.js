@@ -25,7 +25,7 @@ var BrowserView = function (container, model) {
 		]),
 		div({class: "browse"}, model.getAllDishes().map(function (dish) {
 			return div({class: "col-sm-3"}, [
-				div({class: "browse-dish"}, [
+				div({class: "browse-dish", onClick: "showDishView()"}, [
 					div({class: "image-container"}, [
 						img({src: "images/" + dish.image})
 					]),

@@ -7,7 +7,11 @@ var DOM = (function () {
 
 		for(var property in properties) {
 			if (properties.hasOwnProperty(property)) {
-				element.setAttribute(property, properties[property]);
+				if (property === "onClick") {
+					element.onclick = properties[property];
+				} else {
+					element.setAttribute(property, properties[property]);
+				}
 			}
 		}
 
