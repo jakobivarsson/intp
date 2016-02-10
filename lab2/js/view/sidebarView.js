@@ -1,9 +1,9 @@
-
-var SidebarView = function (container, model) {
+var SidebarView = function (model, ctrl) {
 	var menuTable;
 	var numberOfGuests;
 	var menuPrice;
 
+	model.addObserver(this);
 
 	function renderMenuTable() {
 		return table({class: "table"}, [
@@ -12,7 +12,7 @@ var SidebarView = function (container, model) {
 				return tr({}, [
 					td({}, [text(dish.name)]), 
 					td({}, [text(model.getDishPrice(dish))]),
-					td({}, [icon({class: "glyphicon glyphicon-remove remove"})])
+					td({}, [icon({onClick: ctrl.removeDish.bind(null,dish.id), class: "glyphicon glyphicon-remove remove"})])
 				]);
 			}))
 		);
@@ -36,27 +36,31 @@ var SidebarView = function (container, model) {
 				h3({}, [text("My dinner")]),
 				numberOfGuests,
 				div({style: "float:right;"}, [
-					button({type: "button", class: "btn btn-default btn-xs"}, [icon({class: "glyphicon glyphicon-minus"})]),
-					button({class: "btn btn-default btn-xs"}, [icon({class: "glyphicon glyphicon-plus"})])
+					button({onClick: ctrl.decrementGuests, class: "btn btn-default btn-xs"}, [icon({class: "glyphicon glyphicon-minus"})]),
+					button({onClick: ctrl.incrementGuests, class: "btn btn-default btn-xs"}, [icon({class: "glyphicon glyphicon-plus"})])
 				]),
 				hr({style: "clear:both;"}),
 				menuTable,
 				hr(),
-				menuPrice;
+				menuPrice,
 				div({}, [
 					button({class: "btn", style: "display:block; margin:auto; margin-top: 20px;"}, [text("Confirm Dinner")])
 				])
 			])
-		]));
+		]);
 	}
 
 	this.mounted = false;
 
 	this.update = function (object) {
-		if(mounted) {
-			menuTable.replace(renderMenuTable());
-			numberOfGuests.replace(renderNumberOfGuests());
-			menuPrice.replace(renderMenuPrice());
-		}
+		var temp = renderMenuTable();
+		menuTable.replace(temp);
+		menuTable = temp;
+		temp = renderNumberOfGuests();
+		numberOfGuests.replace(temp);
+		numberOfGuests = temp;
+		temp = renderMenuPrice()
+		menuPrice.replace(temp);
+		menuPrice = temp;
 	}
 }

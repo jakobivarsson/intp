@@ -3,12 +3,16 @@ var Router = function (appContainer) {
 
 	var model = new DinnerModel();
 
-	var sidebarView = new SidebarView(model, ctrl);
-	var browserView = new BrowserView(model, ctrl);
-	var dishView = new DishView(model, ctrl);
-	var navigationView = new NavigationView(model, ctrl);
-	var dinnerView = new DinnerView(model, ctrl);
-	var recipeView = new RecipeView(model, ctrl);
+	var sidebarCtrl = new SidebarCtrl(model);
+	var dishCtrl = new DishCtrl(model);
+	var browserCtrl = new BrowserCtrl(model);
+
+	var sidebarView = new SidebarView(model, sidebarCtrl);
+	var browserView = new BrowserView(model, browserCtrl);
+	var dishView = new DishView(model, dishCtrl);
+	//var navigationView = new NavigationView(model, ctrl);
+	// var dinnerView = new DinnerView(model, ctrl);
+	// var recipeView = new RecipeView(model, ctrl);
 
 	var routes = {
 		browser: function () {
@@ -33,7 +37,9 @@ var Router = function (appContainer) {
 
 	this.route = function (route) {
 		if (current != route) {
-			container.removeChildren();
+			while (container.firstChild) {
+		    	container.removeChild(container.firstChild);
+			}
 			render = routes[route];
 			render();
 			current = route;

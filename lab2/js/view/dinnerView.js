@@ -18,6 +18,6 @@ var DinnerView = function (container, model) {
 			])
 		]),
 		hr(),
-		button({class: "btn", style: "display:block; margin:auto"}, [text("Print full recipe")])
+		button({class: "btn", onClick: "showRecipeView()", style: "display:block; margin:auto"}, [text("Print full recipe")])
 	]));
 }
