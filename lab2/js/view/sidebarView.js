@@ -9,12 +9,12 @@ var SidebarView = function (model, ctrl) {
 		return table({class: "table"}, [
 			tr({}, [th({}, [text("Dish name")]), th({}, [text("Cost")])])]
 				.concat(model.getFullMenu().map(function (dish) {
-				return tr({}, [
-					td({}, [text(dish.name)]),
-					td({}, [text(model.getDishPrice(dish))]),
-					td({}, [icon({onClick: ctrl.removeDish.bind(null,dish.id), class: "glyphicon glyphicon-remove remove"})])
-				]);
-			}))
+					return tr({}, [
+						td({}, [text(dish.name)]),
+						td({}, [text(model.getDishPrice(dish))]),
+						td({}, [icon({onClick: ctrl.removeDish.bind(null,dish.id), class: "glyphicon glyphicon-remove remove"})])
+					]);
+				}))
 		);
 	}
 

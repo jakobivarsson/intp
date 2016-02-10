@@ -18,7 +18,15 @@ var BrowserView = function (model, ctrl) {
 		}));
 	}
 
+	function searchDish() {
+		var temp = renderDishes(model.getSelectedType(), searchInput.value);
+		dishes.replace(temp);
+		dishes = temp;
+	}
+
 	var dishes;
+	var searchInput;
+	var selectedType;
 
 	this.render = function () {
 		dishes = renderDishes(model.getSelectedType());
@@ -29,12 +37,13 @@ var BrowserView = function (model, ctrl) {
 				hr(),
 				div({class: "row"}, [
 					form({class: "form-inline col-sm-4"}, [
-						input({placeholder: "Enter key words", class: "form-control"}),
-						button({class: "btn"}, [text("search")])
+						searchInput = input({placeholder: "Enter key words", class: "form-control"}),
+						button({onClick: searchDish, class: "btn"}, [text("search")])
 					]),
 					div({class: "dropdown col-sm-4"}, [
 						button({class: "btn dropdown-toggle", "data-toggle": "dropdown"}, [
-							text(model.getSelectedType() + " "),
+							selectedType = text(model.getSelectedType()),
+							text(" "),
 							span({class: "caret"})
 						]),
 						ul({class: "dropdown-menu"}, model.getDishTypes().map(function (type) {
@@ -51,6 +60,7 @@ var BrowserView = function (model, ctrl) {
 		var temp = renderDishes(model.getSelectedType());
 		dishes.replace(temp);
 		dishes = temp;
+		selectedType.nodeValue = model.getSelectedType();
 	}
 
 }
