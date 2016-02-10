@@ -15,6 +15,11 @@ var DOM = (function () {
 			element.appendChild(child);
 		});
 
+		element.replace = function (newNode) {
+			element.parentNode.replaceChild(newNode, element);
+			// Eller i view update function uppdatera hela view:n
+		}
+
 		return element;
 	};
 
