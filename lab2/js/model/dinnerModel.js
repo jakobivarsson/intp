@@ -78,10 +78,15 @@ var DinnerModel = function() {
 		}, 0);
 	}
 
-	//Adds the passed dish to the menu. If the dish of that type already exists on the menu
-	//it is removed from the menu and the new one added.
+	//Adds the passed dish to the menu. If the dish of that type already exists
+	//on the menu it is removed from the menu and the new one added.
 	this.addDishToMenu = function(id) {
-		menu.push(this.getDish(id));
+		// menu.push(this.getDish(id));
+		var newDish = this.getDish(id);
+		menu = menu.filter(function (dish) {
+			return dish.type != newDish.type;
+		});
+		menu.push(newDish);
 		notifyObservers();
 	}
 
@@ -322,7 +327,7 @@ var DinnerModel = function() {
 			'price':4
 			}]
 		},{
-		'id':102,
+		'id':103,
 		'name':'MD 4',
 		'type':'main dish',
 		'image':'meatballs.jpg',
