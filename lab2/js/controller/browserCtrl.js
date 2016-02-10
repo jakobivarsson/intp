@@ -3,4 +3,8 @@ var BrowserCtrl = function (model) {
 		model.setSelectedDish(dish);
 		router.route("dish");
 	}
+
+	this.selectType = function (type) {
+		model.setSelectedType(type);
+	}
 }
