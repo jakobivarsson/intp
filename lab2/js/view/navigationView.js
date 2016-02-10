@@ -1,6 +1,6 @@
-var NavigationView = function (container, model, ctrl) {
+var NavigationView = function (model, ctrl) {
 	this.render = function () {
-		container.appendChild(div({id: "dinnerView", class: "container-fluid"}, [
+		return div({id: "dinnerView", class: "container-fluid"}, [
 			div({class: "row navigation-bar"}, [
 				h2({}, [
 					text("My Dinner: " + model.getNumberOfGuests() + " people"),
@@ -10,6 +10,6 @@ var NavigationView = function (container, model, ctrl) {
 					])
 				])
 			])
-		]));
+		]);
 	};
 }

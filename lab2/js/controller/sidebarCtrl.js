@@ -10,4 +10,8 @@ var SidebarCtrl = function (model) {
     this.removeDish = function (id) {
         model.removeDishFromMenu(id);
     }
+
+    this.confirm = function () {
+        router.route("dinner");
+    }
 }

@@ -6,13 +6,16 @@ var Router = function (appContainer) {
 	var sidebarCtrl = new SidebarCtrl(model);
 	var dishCtrl = new DishCtrl(model);
 	var browserCtrl = new BrowserCtrl(model);
+	var navigationCtrl = new NavigationCtrl(model);
+	var dinnerCtrl = new DinnerCtrl(model);
+	var recipeCtrl = new RecipeCtrl(model);
 
 	var sidebarView = new SidebarView(model, sidebarCtrl);
 	var browserView = new BrowserView(model, browserCtrl);
 	var dishView = new DishView(model, dishCtrl);
-	//var navigationView = new NavigationView(model, ctrl);
-	// var dinnerView = new DinnerView(model, ctrl);
-	// var recipeView = new RecipeView(model, ctrl);
+	var navigationView = new NavigationView(model, navigationCtrl);
+	var dinnerView = new DinnerView(model, dinnerCtrl);
+	var recipeView = new RecipeView(model, recipeCtrl);
 
 	var routes = {
 		browser: function () {
@@ -30,7 +33,7 @@ var Router = function (appContainer) {
 		recipe: function () {
 			container.appendChild(navigationView.render());
 			container.appendChild(recipeView.render());
-		} 
+		}
 	}
 
 	var current;
@@ -46,4 +49,3 @@ var Router = function (appContainer) {
 		}
 	}
 }
-
