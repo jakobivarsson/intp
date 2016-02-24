@@ -11,7 +11,7 @@ var SidebarView = function (model, ctrl) {
 				.concat(model.getFullMenu().map(function (dish) {
 					return tr({}, [
 						td({}, [text(dish.name)]),
-						td({}, [text(model.getDishPrice(dish))]),
+						td({}, [text(model.getNumberOfGuests() * model.getDishPrice(dish))]),
 						td({}, [icon({onClick: ctrl.removeDish.bind(null,dish.id), class: "glyphicon glyphicon-remove remove"})])
 					]);
 				}))
@@ -23,7 +23,7 @@ var SidebarView = function (model, ctrl) {
 	}
 
 	function renderMenuPrice() {
-		return div({style: "text-align:right"}, [text("Total price: " + model.getTotalMenuPrice() + " SEK")]);
+		return div({style: "text-align:right"}, [text("Total price: " +  (model.getNumberOfGuests() * model.getTotalMenuPrice()) + " SEK")]);
 	}
 
 	this.render = function() {

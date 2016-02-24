@@ -10,12 +10,12 @@ var DinnerView = function (model, ctrl) {
 								img({class: "border", src: "images/" + dish.image}),
 								h4({}, [text(dish.name)])
 							]),
-							div({style: "text-align: right"}, [text(model.getDishPrice(dish) + " SEK")])
+							div({style: "text-align: right"}, [text((model.getDishPrice(dish) * model.getNumberOfGuests()) + " SEK")])
 						])
 					})
 				),
 				div({class: "col-md-3 total-price"}, [
-					span({style: "position: absolute; bottom: 0; left: 10px"}, [text("Total: " + model.getTotalMenuPrice() + " SEK")])
+					span({style: "position: absolute; bottom: 0; left: 10px"}, [text("Total: " + (model.getTotalMenuPrice() * model.getNumberOfGuests()) + " SEK")])
 				])
 			]),
 			hr(),
